@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
           return res.text();
         })
         .then((result) => {
-          if (result === "ok") {
+          if (result === "OK") {
             username_msg.classList.remove("warn");
             username_msg.classList.add("ok");
             username_msg.innerText = " * 사용할 수 있는 USER NAME 입니다.";

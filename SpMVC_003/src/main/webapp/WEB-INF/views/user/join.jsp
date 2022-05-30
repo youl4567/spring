@@ -35,7 +35,7 @@
 	// js 파일에서 roothPath 를 사용할 수 있도록 미리 JS 변수로 선언
 	const rootPath = "${rootPath}"
 </script>
-<script src="${rootPath}/static/js/join.js?ver=2022-05-27-003"></script>
+<script src="${rootPath}/static/js/join.js?ver=2022-05-27-004"></script>
 </head>
 <body>
 
