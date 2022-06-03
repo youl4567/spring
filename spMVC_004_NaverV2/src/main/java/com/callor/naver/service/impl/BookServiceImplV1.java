@@ -2,11 +2,11 @@ package com.callor.naver.service.impl;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.callor.naver.config.QualifierConfig;
 import com.callor.naver.model.BookVO;
+import com.callor.naver.persistance.BookDao;
 import com.callor.naver.service.BookService;
 
 /*
@@ -21,7 +21,13 @@ import com.callor.naver.service.BookService;
  */
 @Service(QualifierConfig.SERVICE.BOOKS_V1)
 public class BookServiceImplV1 implements BookService {
+	
+	private final BookDao bookDao; 
+	public BookServiceImplV1(BookDao bookDao) {
 
+		this.bookDao = bookDao;
+	}
+	
 	@Override
 	public List<BookVO> findByTitle(String title) {
 		// TODO Auto-generated method stub
@@ -48,8 +54,8 @@ public class BookServiceImplV1 implements BookService {
 
 	@Override
 	public List<BookVO> selectAll() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return bookDao.selectAll();
 	}
 
 	@Override

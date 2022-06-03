@@ -32,7 +32,9 @@
 			<li><a href="${rootPath}/books/list">도서정보</a></li>
 			<li><a href="${rootPath}/news">오늘의 뉴스</a></li>
 			<li><a href="${rootPath}/movies">영화정보</a></li>
+			<li><a href="${rootPath}/naver">네이버 체험</a></li>
 
+			<% // 로그인하지 않았을 때 %>
 			<c:if test="${empty MEMBER}"></c:if>
 			<li><a href="${rootPath}/member/login">로그인</a></li>
 			<li><a href="${rootPath}/member/join">회원가입</a></li>

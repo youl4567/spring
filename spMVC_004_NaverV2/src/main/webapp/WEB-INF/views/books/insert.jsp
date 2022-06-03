@@ -15,9 +15,7 @@
 				 <input name="price" placeholder="가격" type="number">
 			</div>
 			<div>
-				<input name="link" placeholder="자세히보기"> <input name="image"
-					placeholder="이미지경로">
-			</div>
+				<input name="link" placeholder="자세히보기">			</div>
 			<textarea rows="10"></textarea>
 			<button type="submit">저장</button>
 		</form>
