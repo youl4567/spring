@@ -19,6 +19,12 @@
 	<h3 class="w3-text-blue">NICK NAME : ${USER.nickname}</h3>
 	<h3 class="w3-text-blue">ROLE: ${USER.role}</h3>
 	</div>
+	<ul>
+		<c:forEach items="${BUY_BOOKS}" var="BOOK">
+			<li>${BOOK.book.isbn}, ${BOOK.book.title}, ${BOOK.book.author}<li>
+			
+		</c:forEach>
+	</ul>
 
 </body>
 </html>

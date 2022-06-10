@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
       */
   // if(book_isbn) 을 실행하여 book_isbn 있으면 addEventListener 을 부착하고
   // 만약 book_isbn 객체가 없으면 오류를 발생시키지 말고 실행을 중단하라
-  book_isbn.addEventListener("input", (e) => {
+  book_isbn?.addEventListener("input", (e) => {
     const isbn = e.target.value;
     if (isbn.length >= 13) {
       alert(isbn);
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  modal_box.addEventListener("click", (tb) => {
+  modal_box?.addEventListener("click", (tb) => {
     // table 에 click event 가 발생하면
     // 가장 내부의 tag 정보를 추출하기
     const td = tb.target;

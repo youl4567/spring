@@ -18,11 +18,14 @@
 	form.join input, form.join button {
 		margin: 5px;
 	}
+	form.join label {
+		
+	}
 	div.error {
 	}
 	
 </style>
-	<script src="${rootPath}/static/js/join.js?20220610001"></script>
+	<script src="${rootPath}/static/js/join.js?20220610010"></script>
 </head>
 
 <body>

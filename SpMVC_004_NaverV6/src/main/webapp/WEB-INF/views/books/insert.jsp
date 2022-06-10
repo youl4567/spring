@@ -22,7 +22,7 @@
 		<input name="link" placeholder="자세히보기" class="w3-input"> 
 		<input name="image" placeholder="이미지경로"value="${BOOK.image}" class="w3-input">
 	</div>
-	<textarea rows="10" name="description" class="w3-input">${BOOK.description}></textarea>
+	<textarea rows="10" name="description" class="w3-input">${BOOK.description}</textarea>
 	<button type="button" class="w3-input w3-indigo book-save">저장</button>
 </form>
 	

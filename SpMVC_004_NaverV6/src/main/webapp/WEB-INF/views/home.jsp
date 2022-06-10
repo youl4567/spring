@@ -20,7 +20,7 @@
 <script>
 	const rootPath = "${rootPath}"
 </script>
-<script src="${rootPath}/static/js/input.js?ver=2022-06-08-009"></script>
+<script src="${rootPath}/static/js/input.js?ver=2022-06-10-001"></script>
 </head>
 <body>
 	<header>
@@ -84,6 +84,9 @@
 			<c:when test="${LAYOUT == 'MYPAGE' }">
 				<%@ include file="/WEB-INF/views/user/mypage.jsp"%>
 			</c:when>
+			<c:otherwise>
+				<%@ include file="/WEB-INF/views/main_view.jsp"%>
+			</c:otherwise>
 
 		</c:choose>
 

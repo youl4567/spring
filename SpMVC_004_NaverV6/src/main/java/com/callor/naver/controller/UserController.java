@@ -1,16 +1,24 @@
 package com.callor.naver.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.callor.naver.config.QualifierConfig;
+import com.callor.naver.model.BookVO;
+import com.callor.naver.model.BuyBooksVO;
 import com.callor.naver.model.UserVO;
+import com.callor.naver.service.BookService;
+import com.callor.naver.service.BuyBooksService;
 import com.callor.naver.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +32,12 @@ public class UserController {
 	@Autowired
 	@Qualifier(QualifierConfig.SERVICE.USER_V2)
 	private UserService userService;
+	
+	@Autowired
+	private BookService bookService;
+	
+	@Autowired
+	private BuyBooksService buyService;
 
 	@RequestMapping(value="/join", method=RequestMethod.GET)
 	public String join(Model model) {
@@ -103,10 +117,70 @@ public class UserController {
 			model.addAttribute("error", "LOGIN_NEED");
 			return "redirect:/user/login";
 		}
+	
+
+		/*
+		 * buybooks 리스트에는 b_isbn, b_username, b_date 값만 담긴 상태이다
+		 * 왜, tbl_buy
+		 */
+		// 로그인한 사용자의 도서 구입 리스트 가져오기
+		List<BuyBooksVO> buyBooks = buyService.findByUserName(loginUser.getUsername());
 		
+		// 도서 구입리스트의 ISBN 을 도서 리스트에서 조회하여 가져오기
+		/*
+		 * 도서 구입리스트를 for() 문으로 반복하면서
+		 * b_isbn 값으로 다시 도서정보를 조회한다
+		 * 조회된 도서정보는 book 변수에 담는다
+		 * book 변수는 type BookVO 이므로 도서의 구체적인 정보가 담기게 된다.
+		 */
+		for(BuyBooksVO buyVO : buyBooks ) {
+			String isbn = buyVO.getB_isbn();
+			BookVO book = bookService.findById(isbn);
+			buyVO.setBook(book);
+		}
+		
+		model.addAttribute("BUY_BOOKS", buyBooks);
 		model.addAttribute("LAYOUT","MYPAGE");
 		return "home";
 		
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="/idcheck/{username}", method=RequestMethod.GET)
+	public String idcheck(@PathVariable("username") String username) {
+		
+		UserVO userVO = userService.findById(username);
+		if(userVO == null) {
+			return "OK";
+		} else {
+			
+		}
+		
+		return "FAIL";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/emailcheck", method=RequestMethod.GET)
+	public String emailcheck(String email) {
+		
+		UserVO userVO = userService.findByEmail(email);
+		if(userVO == null) {
+			return "OK";
+		} else {
+			
+		}
+		
+		return "FAIL";
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+

@@ -15,18 +15,23 @@ import com.callor.naver.config.QualifierConfig;
 import com.callor.naver.model.BookVO;
 import com.callor.naver.model.UserVO;
 import com.callor.naver.service.BookService;
+import com.callor.naver.service.BuyBooksService;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@Controller
 @RequestMapping(value="/books")
-public class BookController {
+public class BookController2 {
 
 	@Qualifier(QualifierConfig.SERVICE.BOOKS_V1)
 	private final BookService bookService;
+	
+	private final BuyBooksService buyService;
 
-	public BookController(BookService bookService) {
+	public BookController2(BookService bookService, BuyBooksService buyservice) {
 		this.bookService = bookService;
+		this.buyService = buyservice;
 	}
 
 	@RequestMapping(value={"/",""})
@@ -85,9 +90,15 @@ public class BookController {
 	 * 요청을 받아 처리할 method
 	 */
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
-	public String insert(BookVO bookVO) {
+	public String insert(BookVO bookVO, HttpSession session, Model model) {
 		log.debug("도서정보 : " + bookVO.toString()); 
-		int ret = bookService.insert(bookVO);
+		UserVO userVO = (UserVO) session.getAttribute("USER");
+		if(userVO == null) {
+			model.addAttribute("error", "LOGIN_NEED");
+			return "redirect:/user/login";
+		}
+		
+		int ret = buyService.insert(userVO, bookVO);
 		// insert 메서드를 호출하여 데이터를 저장한 후
 		// 리턴된 결과에 따라 유저에게 메세지를 보여주고자 할 때
 		// 다음과 같은 코드를 사용한다.

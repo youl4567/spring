@@ -40,16 +40,22 @@
 				<property name="cacheEnabled" value="true"/>
 				<property name="defaultExecutorType" value="REUSE"/>
 				<property name="mapUnderscoreToCamelCase" value="false"/>
-				
 			</bean>
 		</property>
-
 	</bean>
+	
 
 	<!-- sqlSessionTemplate -->
 	<bean class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactory"></constructor-arg>
 	</bean>
+	
+	
+	<tx:jta-transaction-manager />
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="ds" />
+	</bean>
+	
 	<mybatis-spring:scan
 		base-package="com.callor.naver.persistance" />
 </beans>
