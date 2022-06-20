@@ -72,8 +72,8 @@ a.delete {
 			</div>
 		</div>
 		<div class="btn-box">
-			<a href="${rootPath}/books/list" class="list">리스트</a> <a
-				href="${rootPath}/books/${BOOK.isbn}/update" class="update">수정</a>
+			<a href="${rootPath}/books/list" class="list">리스트</a>
+			<a href="${rootPath}/books/${BOOK.isbn}/update" class="update">수정</a>
 			<!-- href="javascript:void(0) : a tag의 link 연결기능을 완전히 무력화 -->
 			<a href="javascript:void(0)" class="delete">삭제</a>
 		</div>
