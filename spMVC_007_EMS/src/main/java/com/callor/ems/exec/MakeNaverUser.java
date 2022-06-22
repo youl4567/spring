@@ -40,8 +40,6 @@ public class MakeNaverUser {
 			);
 	
 		
-		System.out.println(secFiles.get("db.connection.properties")[0]);
-		System.out.println(secFiles.get("db.connection.properties")[1]);
 		
 		Set<String> files = secFiles.keySet();
 	
