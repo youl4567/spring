@@ -8,16 +8,18 @@
 <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Insert title here</title>
+<title>메모 홈</title>
 <script>
 	const rootPath= "${rootPath}"
 </script>
 <script src="${rootPath}/static/memo.js?20220627001"></script>
 </head>
 <body>
-
+	<header>
 	<h1>${USERNAME}님 반갑습니다.</h1>
+	</header>
 	
+	<section>
 	<table class="memo">
 		<tr>
 			<th>SEQ</th>
@@ -45,6 +47,7 @@
 	<c:if test="${not empty USERNAME}">
 		<a href="${rootPath}/user/logout">로그아웃 하기</a>
 	</c:if>
+	</section>	
 	
 </body>
 </html>
