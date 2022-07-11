@@ -9,23 +9,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="${rootPath}/static/css/common.css?ver=2022-06-30-001">
-<style>
-	
-	form {
-		width: 50%;
-		text-align: center;
-	}
-	input {
-		padding: 1rem;
-		width: 100%;
-	}
-</style>
 </head>
 <body>
 	<form method="POST">
-		<input name="username" placeholder="USERNAME 입력 후 ENTER">
+		<input name="username" placeholder="USERNAME" />
+		<input name="password" placeholder="PASSWORD" />
+		<button>회원가입</button>
 	
 	</form>
 </body>

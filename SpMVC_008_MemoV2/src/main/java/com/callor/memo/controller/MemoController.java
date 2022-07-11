@@ -79,7 +79,7 @@ public class MemoController {
 		// 전달받은 seq 에 해당하는 데이터 select
 		MemoDTO memo = memoService.findById(Long.valueOf(seq));
 		model.addAttribute("MEMO", memo);
-		return "memo/insert";
+		return "memo/input";
 	}
 
 	@RequestMapping(value="/{seq}/update", method=RequestMethod.POST)
