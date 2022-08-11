@@ -30,3 +30,10 @@
 ## Dao 인터페이스
 * persistence.GenericDao interface
 selectAll(), findById(), insert(), update(), delete() method 선언
+
+## Student 정보 요청
+* http://localhost:8080/score/student 로 요청을 하면 학생데이터 전체를 JSON 웹 화면에 보여주는 코드 작성
+* StudentController 에 @ResponseBody 부착된 home() method 선언
+* StudentService.selectAll()
+* StudentDao.selectAll()
+* Student-mapper.xml.selectAll

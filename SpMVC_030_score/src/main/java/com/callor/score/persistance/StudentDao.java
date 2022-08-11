@@ -1,4 +1,4 @@
-package com.callor.score.persistence;
+package com.callor.score.persistance;
 
 import com.callor.score.model.StudentVO;
 

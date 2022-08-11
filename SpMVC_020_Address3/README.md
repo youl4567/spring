@@ -3,6 +3,7 @@
 * JSP page ```<%@ include file="..." %>``` 형식으로 JSP 파일을 서로 연결하여 레이아웃을 구성하는데, JSP 파일들이 많아지면 관리가 다소 불편해지는 단점이 있다.
 * 이러한 단점을 극복하고자 사용하는 Layout 도구
 
+* 필요한 Dependency 설정
 ```
 	<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-core -->
 	<dependency>
