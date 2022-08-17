@@ -73,3 +73,4 @@ selectAll(), findById(), insert(), update(), delete() method 선언
 * th:include : 파일을 합성하여 환전히 한 파일로 생성 : controller 에서 model 에 담아 보낸 변수를 모가 공유 가능
 * th:insert : 현재 tag 의 내부에 끼워넣기
 * th:replace: 현재 tag 를 지우고 대체하기
+
